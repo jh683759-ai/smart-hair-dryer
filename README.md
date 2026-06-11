@@ -41,6 +41,29 @@ Power distribution:
 - Git
 - GitHub
 
+## Safety System
+
+To improve system reliability and user safety, a dual-layer thermal protection system is implemented.
+
+### Software Protection
+
+Temperature is continuously monitored using an NTC thermistor.
+
+Control strategy:
+
+- Temperature > 70°C → Reduce heater output
+- Temperature > 80°C → Turn off heater
+
+### Hardware Protection
+
+An independent KSD9700 (77°C) thermal switch is connected in series with the heater power line.
+
+Functions:
+
+- Automatically disconnects heater power when temperature exceeds 77°C
+- Operates independently from the MCU
+- Protects the system in case of firmware failure or MOSFET malfunction
+
 ## System Architecture
 
 1. Measure the distance between the dryer and the user's hair
